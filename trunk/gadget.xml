@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>Binary Clock</name>
+  <version>1.0.0.0</version>
+  <author name="Thomas Werner">
+  </author>
+  <copyright>&#169; Thomas Werner</copyright>
+  <description>A binary clock for geeks.</description>
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="BinaryClock.html" />
+      <permissions>Full</permissions>
+      <platform minPlatformVersion="1.0" />
+    </host>
+  </hosts>
+</gadget>

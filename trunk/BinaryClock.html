@@ -1,0 +1,90 @@
+<html >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+        <title>Hello World</title>
+        <style type="text/css">
+        body { margin: 0; width: 130px; height: 130px; }
+        #gadgetContent { margin-top: 20px; width: 130px; vertical-align: middle; text-align: center; overflow: hidden; }
+        </style>
+        <script type="text/jscript" language="jscript">
+          var parts = new Array("h", "m", "s");
+        
+          function init() {
+            var oBackground = document.getElementById("imgBackground");
+            oBackground.src = "url(images/blank.png)";
+            window.setInterval("setTime()", 250);
+          }
+          
+          function setTime() {
+            for(var i=0; i<parts.length; i++) {
+              for(var j=0; j<4; j++) {
+                setDot(parts[i], 0, Math.pow(2, j));
+                setDot(parts[i], 1, Math.pow(2, j));
+              }
+            }
+          }
+          
+          function setDot(part, dec, pot) {
+            var img = document.getElementById(part + dec +"_" +pot);
+            var num = 0;
+            switch(part) {
+              case "h":
+                num = new Date().getHours();
+                break;
+              case "m":
+                num = new Date().getMinutes();
+                break;
+              case "s":
+                num = new Date().getSeconds();
+                break;
+            }
+            num = (1 == dec) ? num / 10 : num % 10;
+            img.src = "url(images/" +((pot == (num & pot)) ? "dot.png" : "blank.png") +")";
+          }
+          
+        </script>
+    </head>
+	
+  <body onload="init()">
+    <g:background id="imgBackground">
+      <div id="gadgetContent">
+        <table cellspacing="1" cellpadding="1" border="0">
+          <tbody>
+            <tr>
+              <td><g:image id="h1_8" src="images/dot.png"/></td>
+              <td><g:image id="h0_8" src="images/dot.png"/></td>
+              <td><g:image id="m1_8" src="images/dot.png"/></td>
+              <td><g:image id="m0_8" src="images/dot.png"/></td>
+              <td><g:image id="s1_8" src="images/dot.png"/></td>
+              <td><g:image id="s0_8" src="images/dot.png"/></td>
+            </tr>
+            <tr>
+              <td><g:image id="h1_4" src="images/dot.png"/></td>
+              <td><g:image id="h0_4" src="images/dot.png"/></td>
+              <td><g:image id="m1_4" src="images/dot.png"/></td>
+              <td><g:image id="m0_4" src="images/dot.png"/></td>
+              <td><g:image id="s1_4" src="images/dot.png"/></td>
+              <td><g:image id="s0_4" src="images/dot.png"/></td>
+            </tr>
+            <tr>
+              <td><g:image id="h1_2" src="images/dot.png"/></td>
+              <td><g:image id="h0_2" src="images/dot.png"/></td>
+              <td><g:image id="m1_2" src="images/dot.png"/></td>
+              <td><g:image id="m0_2" src="images/dot.png"/></td>
+              <td><g:image id="s1_2" src="images/dot.png"/></td>
+              <td><g:image id="s0_2" src="images/dot.png"/></td>
+            </tr>
+            <tr>
+              <td><g:image id="h1_1" src="images/dot.png"/></td>
+              <td><g:image id="h0_1" src="images/dot.png"/></td>
+              <td><g:image id="m1_1" src="images/dot.png"/></td>
+              <td><g:image id="m0_1" src="images/dot.png"/></td>
+              <td><g:image id="s1_1" src="images/dot.png"/></td>
+              <td><g:image id="s0_1" src="images/dot.png"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </g:background>
+  </body>
+</html>
